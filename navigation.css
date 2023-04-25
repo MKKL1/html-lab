@@ -1,0 +1,118 @@
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: #1C1B22;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+nav .header {
+    font-size: 30px;
+    color: #00ffcf;
+}
+
+.menu {
+    display: flex;
+    font-size: 18px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: white;
+}
+
+.menu .selected {
+    background-color: #00d99b;
+}
+
+.menu .selected a{
+    color: #3d3d3d;
+}
+
+.menu >li:hover:not(.selected) {
+    background-color: #282828;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+
+.menu li {
+    padding: 14px 14px;
+    list-style: none;
+}
+
+.oknorozwijane {
+    background-color: #282828;
+    padding: 1em 0;
+    position: absolute;
+    right: 0;
+    display: none;
+    border-radius: 8px;
+    top: 45px;
+}
+
+.oknorozwijane li {
+    padding: 0.5em 1em;
+    width: 8em;
+    text-align: center;
+}
+
+.oknorozwijane li:hover {
+    background-color: #383838;
+    transition: 0.3s ease;
+}
+
+.rozwijane:hover .oknorozwijane {
+    display: block;
+}
+
+.rozwijane {
+    position: relative;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .menu {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        right: 0;
+        left: 0;
+        padding: 0;
+    }
+
+    .menu li {
+        width: 100%;
+    }
+
+    .menu li:hover {
+        display: inline-block;
+        transition: 0.3s ease;
+    }
+
+    .oknorozwijane {
+        left:0;
+        width: auto;
+    }
+}

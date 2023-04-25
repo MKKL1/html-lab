@@ -1,0 +1,23 @@
+#galeria {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    align-content: center;
+}
+
+#galeria a{
+    position: relative;
+    margin: 10px;
+}
+#galeria img{
+    width: 35vh;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+#galeria img:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    transition: 0.3s ease;
+}
