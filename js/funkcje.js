@@ -49,10 +49,29 @@ function pokazPost()
 //użytkownika zostaną przekazane mailem na wskazany adres, ale najpierw po
 //zajściu zdarzenia submit (wyślij) – zostanie wywołana funkcja pokazDane()
     tresc='<h2><br />Dodaj post</h2>';
-    tresc+='<article class="srodek" ><form action="mailto:b.panczyk@pollub.pl" method="post" onsubmit="return pokazDane();">'+ 'Twój email:<br /> <input type="email" name="email" id="email" required /><br />'+
+    tresc+='<article class="srodek" ><form action="mailto:b.panczyk@pollub.pl" method="post" onsubmit="return pokazDane();">' +
 // dodaj kolejne 2 pola formularza
+    'Twój email: <br /><input type="email" name="email" id="email" required="required" pattern="[a-zA-Z0-9_]+@[a-zA-Z0-9\\-]+\\.[a-zA-Z0-9\\-\\.]+"/>' +
+    '<br />Nazwisko i Imie <br /><input type="text" name="imienazwisko" id="imienazwisko" required="required"/>' +
+    '<br />Nr telefonu: <br /><input type="text" name="nrtelefonu" id="nrtelefonu" pattern="([1-9]{1,1}[0-9]{1,1}(-)?[1-9]{1,1}[0-9]{6,6})|([1-9]{1,1}[0-9]{8,8})"/>' +
+    '<br />Zainteresowania<br /> <input type="checkbox" id="zainSport" name="Sport" value="Sport">' +
+    '<label for="zainSport">Sport</label>' +
+    '<input type="checkbox" id="zainMuzyka" name="Muzyka" value="Muzyka">' +
+    '<label for="zainMuzyka">Muzyka</label>' +
+    '<input type="checkbox" id="zainFilm" name="Film" value="Film">' +
+    '<label for="zainFilm">Film</label>' +
+    '<input type="checkbox" id="zainInne" name="Inne" value="Inne">' +
+    '<label for="zainInne">Inne</label>' +
+    '<br />Wiek<br />\n' +
+    '<input type="radio" name="wiek" value="m10" /> Mniej niz 10\n' +
+    '<input type="radio" name="wiek" value="10do20" /> 10-20\n' +
+    '<input type="radio" name="wiek" value="21do30" /> 21-30\n' +
+    '<input type="radio" name="wiek" value="31do40" /> 31-40\n' +
+    '<input type="radio" name="wiek" value="41do50" /> 41-50\n' +
+    '<input type="radio" name="wiek" value="w50" /> Wiecej niz 50\n <br />' +
     'Komentarz: <br /><textarea rows="3" cols="20" id="wiadomosc" name="wiadomosc" required></textarea>'+
-    '<br /> <input type="submit" name="wyslij" value="Wyślij" />'+
+    '<br />' +
+    '<br /> <input type="submit" name="wyslij" value="Wyślij" onsubmit="pokazDane()" />'+
     '</form></article>';
     return tresc;
 }
@@ -62,7 +81,9 @@ function pokazDane()
 //typu confirm do zatwierdzenia przez użytkownika:
     var dane="Następujące dane zostaną wysłane:\n";
     dane+="Email: "+document.getElementById('email').value+"\n";
+    dane+="Nazwisko i Imie: "+document.getElementById('imienazwisko').value+"\n";
+    dane+="Nr Telefonu: "+document.getElementById('nrtelefonu').value+"\n";
+    dane+="Wiadomosc: "+document.getElementById('wiadomosc').value+"\n";
 // uzupełnij dane ...
-    if (window.confirm(dane)) return true;
-    else return false;
+    return window.confirm(dane);
 }
